@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_ingestion_dlt_pipeline:
+      name: Ingestion_DLT_Pipeline
+      libraries:
+        - glob:
+            include: ../../src/pipelines/Ingestion_DLT_Pipeline/transformations/**
+      schema: bronze
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog_name}
+      serverless: true
+      root_path: ../../src/pipelines/Ingestion_DLT_Pipeline
